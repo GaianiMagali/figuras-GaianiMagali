@@ -6,7 +6,11 @@ public class Circulo extends Figura {
 
     public Circulo(String color, Integer radio) {
         super(color);
-        this.radio = radio;
+        if (radio==null || radio<=0)
+                throw new RuntimeException("Las dimensiones no pueden ser menores o iguales a 0 (cero)");
+        else{
+            this.radio = radio;
+        }
     }
 
     public Double area() {
@@ -16,4 +20,13 @@ public class Circulo extends Figura {
     public Double perimetro() {
         return 2*Math.PI*radio;
     }
+
+    public Boolean regular() {
+        return true;
+    }
+
+
+
+
 }
+
